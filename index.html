@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tava Rose University — A New Standard of Living</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FDFAF5;
+    --charcoal: #1C1C1C;
+    --deep: #0E0E0E;
+    --rose: #C8896A;
+    --rose-light: #E8C4B0;
+    --gold: #B8955A;
+    --sage: #7A8C72;
+    --slate: #3A3F4A;
+    --mist: #D4CEC5;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--deep);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(to bottom, rgba(14,14,14,0.95), transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--rose); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--rose-light); }
+
+  .nav-cta {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--deep);
+    background: var(--rose);
+    padding: 0.6rem 1.5rem;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 4rem 5rem 4rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+
+  .hero-headline em {
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1em;
+    color: var(--rose-light);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--mist);
+    max-width: 360px;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--deep);
+    background: var(--rose);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); }
+
+  .btn-ghost {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-bottom: 1px solid rgba(245,240,232,0.3);
+    padding-bottom: 2px;
+    transition: color 0.3s, border-color 0.3s;
+  }
+  .btn-ghost:hover { color: var(--rose-light); border-color: var(--rose-light); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-img-fill {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, var(--deep) 0%, transparent 30%),
+      linear-gradient(160deg, #2A1F1A 0%, #1A2020 50%, #0E0E0E 100%);
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,137,106,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,137,106,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0;
+    animation: fadeIn 2s ease 1s forwards;
+  }
+
+  .hero-blueprint {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    width: 280px;
+    height: 280px;
+    border: 1px solid rgba(200,137,106,0.2);
+    opacity: 0;
+    animation: fadeIn 1.5s ease 1.2s forwards;
+  }
+  .hero-blueprint::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(200,137,106,0.12);
+  }
+  .hero-blueprint::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 20px; right: 20px;
+    height: 1px;
+    background: rgba(200,137,106,0.15);
+  }
+
+  .hero-blueprint-inner {
+    position: absolute;
+    left: 20px; top: 20px; right: 20px; bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-blueprint-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(200,137,106,0.5);
+    text-align: center;
+    line-height: 2.5;
+  }
+
+  .hero-stats {
+    position: absolute;
+    top: 8rem;
+    right: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeIn 1.5s ease 1.4s forwards;
+  }
+
+  .stat {
+    text-align: right;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--rose-light);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mist);
+    margin-top: 0.3rem;
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--rose), transparent);
+    opacity: 0.3;
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-strip {
+    background: var(--rose);
+    padding: 0.9rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+  }
+
+  .marquee-inner span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--deep);
+    margin: 0 2.5rem;
+    font-weight: 500;
+  }
+
+  .marquee-dot {
+    color: rgba(14,14,14,0.4);
+    font-size: 0.8rem;
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 4rem; }
+
+  .section-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rose-light);
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    background: var(--charcoal);
+  }
+
+  .about-left .section-title { font-size: clamp(2.8rem, 4vw, 4rem); }
+
+  .about-body {
+    color: var(--mist);
+    font-size: 0.95rem;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+  }
+
+  .about-pull {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--rose-light);
+    line-height: 1.5;
+    border-left: 2px solid var(--rose);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .about-right {
+    position: relative;
+  }
+
+  .about-visual {
+    aspect-ratio: 3/4;
+    background: linear-gradient(145deg, #2A2018 0%, #1A2520 60%, #151015 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,137,106,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,137,106,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .about-visual-label {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  .about-badge {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: spin-slow 20s linear infinite;
+  }
+
+  .about-badge-inner {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--deep);
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  /* ── CURRICULUM ── */
+  .curriculum {
+    background: var(--deep);
+    position: relative;
+  }
+
+  .curriculum-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 5rem;
+  }
+
+  .curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(200,137,106,0.15);
+    border: 1px solid rgba(200,137,106,0.15);
+  }
+
+  .course-card {
+    background: var(--deep);
+    padding: 2.5rem 2rem;
+    position: relative;
+    transition: background 0.4s;
+    cursor: default;
+  }
+  .course-card:hover { background: #151515; }
+
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--rose);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .course-card:hover::before { transform: scaleX(1); }
+
+  .course-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--rose);
+    margin-bottom: 1rem;
+    font-weight: 300;
+  }
+
+  .course-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.8rem;
+  }
+
+  .course-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+  }
+
+  .course-desc {
+    font-size: 0.8rem;
+    color: var(--mist);
+    line-height: 1.8;
+  }
+
+  /* ── PROGRAMS ── */
+  .programs {
+    background: var(--charcoal);
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .program-card {
+    position: relative;
+    overflow: hidden;
+    padding: 3.5rem 3rem;
+    background: var(--deep);
+    border: 1px solid rgba(200,137,106,0.12);
+    transition: border-color 0.4s, transform 0.3s;
+  }
+  .program-card:hover {
+    border-color: rgba(200,137,106,0.4);
+    transform: translateY(-3px);
+  }
+
+  .program-card.featured {
+    background: linear-gradient(145deg, #1E1510 0%, #0E1510 100%);
+  }
+
+  .program-badge {
+    display: inline-block;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--deep);
+    background: var(--rose);
+    padding: 0.35rem 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .program-degree {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+  }
+
+  .program-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--rose-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .program-desc {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--mist);
+    margin-bottom: 2rem;
+  }
+
+  .program-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .program-features li {
+    font-size: 0.78rem;
+    color: var(--mist);
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .program-features li::before {
+    content: '—';
+    color: var(--rose);
+    flex-shrink: 0;
+  }
+
+  .program-sub-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .program-minor {
+    padding: 2rem;
+    background: var(--deep);
+    border: 1px solid rgba(200,137,106,0.1);
+    transition: border-color 0.4s;
+  }
+  .program-minor:hover { border-color: rgba(200,137,106,0.35); }
+
+  .minor-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.6rem;
+  }
+
+  .minor-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .minor-desc {
+    font-size: 0.8rem;
+    color: var(--mist);
+    line-height: 1.7;
+  }
+
+  /* ── PROCESS ── */
+  .process {
+    background: var(--deep);
+  }
+
+  .process-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 4rem;
+  }
+
+  .process-intro {
+    font-size: 0.95rem;
+    color: var(--mist);
+    line-height: 1.9;
+  }
+
+  .process-steps {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(200,137,106,0.2);
+  }
+
+  .step {
+    padding: 2rem 0 2rem 2.5rem;
+    position: relative;
+    border-bottom: 1px solid rgba(200,137,106,0.08);
+  }
+  .step:last-child { border-bottom: none; }
+
+  .step::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 2.4rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--rose);
+    box-shadow: 0 0 12px var(--rose);
+  }
+
+  .step-num {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+    color: var(--mist);
+    line-height: 1.7;
+  }
+
+  /* ── BOOKSTORE ── */
+  .bookstore {
+    background: var(--rose);
+    padding: 5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .bookstore .section-label { color: var(--deep); opacity: 0.6; }
+  .bookstore .section-title { color: var(--deep); }
+
+  .bookstore-body {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(14,14,14,0.7);
+    margin-bottom: 2rem;
+  }
+
+  .bookstore .btn-primary {
+    background: var(--deep);
+    color: var(--cream);
+  }
+  .bookstore .btn-primary:hover { background: var(--charcoal); }
+
+  .bookstore-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .bookstore-item {
+    background: rgba(14,14,14,0.1);
+    padding: 1.5rem;
+    border: 1px solid rgba(14,14,14,0.15);
+    transition: background 0.3s;
+  }
+  .bookstore-item:hover { background: rgba(14,14,14,0.2); }
+
+  .bookstore-item-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .bookstore-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--deep);
+    margin-bottom: 0.3rem;
+  }
+
+  .bookstore-item-tag {
+    font-size: 0.65rem;
+    color: rgba(14,14,14,0.55);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── GRADUATION CTA ── */
+  .graduation {
+    background: var(--deep);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 4rem;
+  }
+
+  .grad-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(200,137,106,0.08) 0%, transparent 70%);
+  }
+
+  .grad-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,137,106,0.06);
+  }
+  .grad-ring:nth-child(2) { width: 800px; height: 800px; border-color: rgba(200,137,106,0.04); }
+  .grad-ring:nth-child(3) { width: 1000px; height: 1000px; border-color: rgba(200,137,106,0.025); }
+
+  .grad-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+
+  .grad-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 2rem;
+  }
+
+  .grad-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 0.9;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .grad-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--rose-light);
+    margin-bottom: 2rem;
+  }
+
+  .grad-body {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--mist);
+    margin-bottom: 3rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grad-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 4rem;
+    border-top: 1px solid rgba(200,137,106,0.15);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .footer-brand span { color: var(--rose); }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    color: var(--mist);
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.7rem; }
+  .footer-col ul li a {
+    font-size: 0.82rem;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--rose-light); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(200,137,106,0.1);
+    font-size: 0.72rem;
+    color: rgba(212,206,197,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* ── INTERSECTION OBSERVER CLASSES ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Tava <span>Rose</span> University</a>
+  <ul class="nav-links">
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#bookstore">Bookstore</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta">Apply for Admission</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Est. Class of 2024 · Smart Home Architecture</p>
+    <h1 class="hero-headline">
+      A New<br/>
+      Standard<br/>
+      of <em>Living.</em>
+    </h1>
+    <p class="hero-sub">
+      Tava Rose University transforms the homebuilding process into an immersive lifestyle experience — where architecture meets technology, and every space is a chapter in your story.
+    </p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-primary">Apply for Admission</a>
+      <a href="#curriculum" class="btn-ghost">Explore Curriculum →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-fill"></div>
+    <div class="hero-grid-overlay"></div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Custom Design</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Experience Stages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Possibilities</div>
+      </div>
+    </div>
+
+    <div class="hero-blueprint">
+      <div class="hero-blueprint-inner">
+        <div class="hero-blueprint-text">
+          Floor Plan<br/>Design Studio<br/>· · ·<br/>Blueprint Series
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-divider"></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>Smart Home Design</span><span class="marquee-dot">◆</span>
+    <span>Admissions Open</span><span class="marquee-dot">◆</span>
+    <span>Japandi Architecture</span><span class="marquee-dot">◆</span>
+    <span>Cinematic Spaces</span><span class="marquee-dot">◆</span>
+    <span>Wellness Living</span><span class="marquee-dot">◆</span>
+    <span>Custom ADUs</span><span class="marquee-dot">◆</span>
+    <span>Graduation Reveal</span><span class="marquee-dot">◆</span>
+    <span>Luxury Construction</span><span class="marquee-dot">◆</span>
+    <span>Smart Home Design</span><span class="marquee-dot">◆</span>
+    <span>Admissions Open</span><span class="marquee-dot">◆</span>
+    <span>Japandi Architecture</span><span class="marquee-dot">◆</span>
+    <span>Cinematic Spaces</span><span class="marquee-dot">◆</span>
+    <span>Wellness Living</span><span class="marquee-dot">◆</span>
+    <span>Custom ADUs</span><span class="marquee-dot">◆</span>
+    <span>Graduation Reveal</span><span class="marquee-dot">◆</span>
+    <span>Luxury Construction</span><span class="marquee-dot">◆</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-left reveal">
+    <p class="section-label">Our Philosophy</p>
+    <h2 class="section-title">We don't build homes.<br/>We shape <em>lives.</em></h2>
+    <p class="about-body">
+      Every great institution teaches more than a subject — it transforms the way you see the world. Tava Rose University was born from the belief that where you live should do the same.
+    </p>
+    <div class="about-pull">
+      "At Tava Rose University, clients don't simply buy a home. They apply for admission into a new way of living."
+    </div>
+    <p class="about-body">
+      We blend luxury residential construction, cinematic architecture, smart home technology, and wellness-centered design into one deeply personal experience. The result is not just a structure — it's a living environment that feels calming, futuristic, and emotionally yours.
+    </p>
+  </div>
+  <div class="about-right reveal reveal-delay-2">
+    <div class="about-visual">
+      <div class="about-visual-label">Tava Rose, Design Studio</div>
+    </div>
+    <div class="about-badge">
+      <div class="about-badge-inner">
+        Tava Rose<br/>University<br/>· · ·<br/>Est. 2024
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curriculum" id="curriculum">
+  <div class="curriculum-header reveal">
+    <p class="section-label">The Curriculum</p>
+    <h2 class="section-title">Every element of your<br/>journey, <em>by design.</em></h2>
+    <p style="color:var(--mist);font-size:0.9rem;line-height:1.9;margin-top:1rem;">
+      Our university framework transforms every touchpoint of the homebuilding process into a meaningful, memorable experience.
+    </p>
+  </div>
+
+  <div class="curriculum-grid">
+    <div class="course-card reveal">
+      <div class="course-icon">🎓</div>
+      <div class="course-tag">Semester 01</div>
+      <div class="course-name">Admissions</div>
+      <div class="course-desc">Client onboarding and lifestyle consultation. We learn who you are before we design where you live.</div>
+    </div>
+    <div class="course-card reveal reveal-delay-1">
+      <div class="course-icon">🏛</div>
+      <div class="course-tag">Semester 02</div>
+      <div class="course-name">Majors &amp; Minors</div>
+      <div class="course-desc">Full smart homes are your Major. Smart sheds, studios, and ADUs are your Minor — equally refined.</div>
+    </div>
+    <div class="course-card reveal reveal-delay-2">
+      <div class="course-icon">📐</div>
+      <div class="course-tag">Semester 03</div>
+      <div class="course-name">Courses</div>
+      <div class="course-desc">Educational design walkthroughs and smart home guidance delivered throughout your build journey.</div>
+    </div>
+    <div class="course-card reveal reveal-delay-3">
+      <div class="course-icon">🌿</div>
+      <div class="course-tag">Semester 04</div>
+      <div class="course-name">Campus Life</div>
+      <div class="course-desc">The community and design ecosystem surrounding your home — from neighbors to network to inspiration.</div>
+    </div>
+    <div class="course-card reveal">
+      <div class="course-icon">📦</div>
+      <div class="course-tag">Semester 05</div>
+      <div class="course-name">The Bookstore</div>
+      <div class="course-desc">Branded products, curated décor, apparel, and technology — all Tava Rose University essentials.</div>
+    </div>
+    <div class="course-card reveal reveal-delay-1">
+      <div class="course-icon">🏅</div>
+      <div class="course-tag">Semester 06</div>
+      <div class="course-name">Degrees</div>
+      <div class="course-desc">Completion tiers and lifestyle packages that mark each milestone in your custom home journey.</div>
+    </div>
+    <div class="course-card reveal reveal-delay-2">
+      <div class="course-icon">🌐</div>
+      <div class="course-tag">Semester 07</div>
+      <div class="course-name">Smart Integration</div>
+      <div class="course-desc">Whole-home intelligence: lighting, climate, security, entertainment — seamlessly orchestrated.</div>
+    </div>
+    <div class="course-card reveal reveal-delay-3">
+      <div class="course-icon">🎉</div>
+      <div class="course-tag">Semester 08</div>
+      <div class="course-name">Graduation</div>
+      <div class="course-desc">The final home reveal and move-in experience — a ceremony you will never forget.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="reveal">
+    <p class="section-label">Academic Programs</p>
+    <h2 class="section-title">Choose your <em>degree.</em></h2>
+  </div>
+
+  <div class="programs-grid">
+    <div class="program-card featured reveal">
+      <div class="program-badge">Major — Full Program</div>
+      <div class="program-degree">SMART HOME</div>
+      <div class="program-subtitle">Bachelor of Modern Living</div>
+      <p class="program-desc">
+        A complete luxury smart home experience — from ground-up construction through cinematic interior design, fully integrated home technology, and wellness-optimized spaces.
+      </p>
+      <ul class="program-features">
+        <li>Full architectural design consultation</li>
+        <li>Japandi + modern aesthetic integration</li>
+        <li>Whole-home smart technology system</li>
+        <li>Wellness spaces: meditation, spa, studio</li>
+        <li>Cinematic lighting and atmosphere design</li>
+        <li>Graduation reveal ceremony</li>
+      </ul>
+    </div>
+
+    <div class="program-sub-grid">
+      <div class="program-minor reveal reveal-delay-1">
+        <div class="minor-tag">Minor · Studio Series</div>
+        <div class="minor-name">Smart Studio ADU</div>
+        <p class="minor-desc">A fully intelligent accessory dwelling unit — compact, beautiful, and tech-forward. Perfect for creative work, guest living, or rental income.</p>
+      </div>
+      <div class="program-minor reveal reveal-delay-2">
+        <div class="minor-tag">Minor · Outbuilding Series</div>
+        <div class="minor-name">The Smart Shed</div>
+        <p class="minor-desc">Elevated outbuilding design transformed into a premium, purposeful structure — workshop, gym, garden retreat, or office.</p>
+      </div>
+      <div class="program-minor reveal reveal-delay-3">
+        <div class="minor-tag">Minor · Renovation Series</div>
+        <div class="minor-name">Space Transformation</div>
+        <p class="minor-desc">Targeted interior renovation with smart upgrades — kitchens, bathrooms, living rooms — redesigned to feel entirely new.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-header">
+    <div class="reveal">
+      <p class="section-label">The Journey</p>
+      <h2 class="section-title">From application<br/>to <em>graduation.</em></h2>
+    </div>
+    <p class="process-intro reveal reveal-delay-2">
+      Every step of the Tava Rose University process is designed to be as extraordinary as the home we build for you. You are not a client — you are a student of a better way of living.
+    </p>
+  </div>
+
+  <div class="process-steps reveal">
+    <div class="step">
+      <div class="step-num">01 · Admissions</div>
+      <div class="step-title">Application & Discovery</div>
+      <p class="step-desc">You submit your application. We learn how you live, what you value, and where your life is headed. This is not a sales call — it's your first class.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02 · Orientation</div>
+      <div class="step-title">Vision & Design Alignment</div>
+      <p class="step-desc">Our design team walks you through aesthetic directions, technology options, and lifestyle integrations. You choose your major, your materials, your atmosphere.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03 · Coursework</div>
+      <div class="step-title">Active Build Phase</div>
+      <p class="step-desc">Construction begins. You receive design education sessions, smart home tutorials, and milestone updates — keeping you informed and inspired throughout.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04 · Thesis</div>
+      <div class="step-title">Final Details & Customization</div>
+      <p class="step-desc">The finishing stage is where your home becomes unmistakably yours. Curated furnishings, programmed lighting scenes, art curation, and scent design.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05 · Graduation</div>
+      <div class="step-title">The Reveal Ceremony</div>
+      <p class="step-desc">You receive your degree. The doors open. The moment — cinematic, emotional, completely unforgettable — marks your arrival into a new standard of living.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKSTORE -->
+<section class="bookstore" id="bookstore">
+  <div>
+    <p class="section-label">The Bookstore</p>
+    <h2 class="section-title">Carry the<br/>lifestyle with you.</h2>
+    <p class="bookstore-body">
+      The Tava Rose University Bookstore extends the experience beyond your walls — curated products, branded goods, smart home accessories, and lifestyle essentials for the modern graduate.
+    </p>
+    <a href="#" class="btn-primary">Visit the Bookstore</a>
+  </div>
+
+  <div class="bookstore-items reveal">
+    <div class="bookstore-item">
+      <div class="bookstore-item-icon">🏠</div>
+      <div class="bookstore-item-name">Smart Home Starter Kits</div>
+      <div class="bookstore-item-tag">Technology · Lifestyle</div>
+    </div>
+    <div class="bookstore-item">
+      <div class="bookstore-item-icon">🧥</div>
+      <div class="bookstore-item-name">TRU Apparel</div>
+      <div class="bookstore-item-tag">Branded · Premium</div>
+    </div>
+    <div class="bookstore-item">
+      <div class="bookstore-item-icon">🕯</div>
+      <div class="bookstore-item-name">Signature Scents</div>
+      <div class="bookstore-item-tag">Wellness · Atmosphere</div>
+    </div>
+    <div class="bookstore-item">
+      <div class="bookstore-item-icon">📚</div>
+      <div class="bookstore-item-name">Design Lookbooks</div>
+      <div class="bookstore-item-tag">Editorial · Curated</div>
+    </div>
+    <div class="bookstore-item">
+      <div class="bookstore-item-icon">🌿</div>
+      <div class="bookstore-item-name">Wellness Décor</div>
+      <div class="bookstore-item-tag">Japandi · Curated</div>
+    </div>
+    <div class="bookstore-item">
+      <div class="bookstore-item-icon">🎓</div>
+      <div class="bookstore-item-name">Graduation Gifts</div>
+      <div class="bookstore-item-tag">Milestone · Keepsakes</div>
+    </div>
+  </div>
+</section>
+
+<!-- GRADUATION CTA -->
+<section class="graduation" id="apply">
+  <div class="grad-bg"></div>
+  <div class="grad-ring"></div>
+  <div class="grad-ring"></div>
+  <div class="grad-ring"></div>
+
+  <div class="grad-content reveal">
+    <p class="grad-eyebrow">Now Accepting Applications</p>
+    <h2 class="grad-title">READY TO<br/>ENROLL?</h2>
+    <p class="grad-subtitle">Your new standard of living awaits.</p>
+    <p class="grad-body">
+      Tava Rose University has limited enrollment each season. We work with a select number of clients to ensure every project receives the full scope of our attention, creativity, and craft.
+    </p>
+    <div class="grad-actions">
+      <a href="#" class="btn-primary">Apply for Admission</a>
+      <a href="#" class="btn-ghost">Schedule a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Tava <span>Rose</span> University</div>
+      <p class="footer-tagline">A university-themed smart home and construction company that transforms the homebuilding process into an immersive lifestyle experience.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">Smart Home Major</a></li>
+        <li><a href="#">ADU Minor</a></li>
+        <li><a href="#">Smart Shed Minor</a></li>
+        <li><a href="#">Renovation Series</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Campus</h4>
+      <ul>
+        <li><a href="#">The Curriculum</a></li>
+        <li><a href="#">Design Courses</a></li>
+        <li><a href="#">The Bookstore</a></li>
+        <li><a href="#">Graduation Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Admissions</h4>
+      <ul>
+        <li><a href="#">Apply Now</a></li>
+        <li><a href="#">Schedule Tour</a></li>
+        <li><a href="#">Financial Aid</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Tava Rose University · All Rights Reserved</span>
+    <span>Smart Homes · Cinematic Architecture · Modern Living</span>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
